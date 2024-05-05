@@ -21,6 +21,22 @@ export const fetchCampus = (campus) => {
   };
 };
 
+// ADD CAMPUS
+export const addCampus = (campus) => {
+  return {
+    type: at.ADD_CAMPUS,
+    payload: campus,
+  };
+};
+
+// DELETE CAMPUS
+export const deleteCampus = (id) => {
+  return {
+    type: at.DELETE_CAMPUS,
+    payload: id,
+  };
+};
+
 //All Students
 export const fetchAllStudents = (students) => {
   return {
