@@ -14,7 +14,7 @@ import { Typography } from '@material-ui/core'
 
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
-  const { allCampuses, deleteCampus } = props
+  const { allCampuses } = props
 
   if (!props.allCampuses.length) {
     return <div>There are no campuses.</div>
@@ -43,18 +43,6 @@ const AllCampusesView = (props) => {
                   <h4>campus id: {campus.id}</h4>
                   <p>{campus.address}</p>
                   <p>{campus.description}</p>
-                  <Grid container spacing={0}>
-                    <Grid item xs={6}>
-                      <Button variant="outlined" style={{ backgroundColor: '#f0f0f5' }} onClick={() => deleteCampus(campus.id)}>
-                        Remove
-                      </Button>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Link to={`/campus/${campus.id}/edit`}>
-                        <Button variant="outlined" style={{ backgroundColor: '#f0f0f5' }}>Edit</Button>
-                      </Link>
-                    </Grid>
-                  </Grid>
                 </div>
               </Paper>
             </Box>

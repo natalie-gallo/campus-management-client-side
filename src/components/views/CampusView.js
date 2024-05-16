@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Box, Paper, Typography, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { deleteStudent } from '../../store/actions/actionCreators';
+//import { deleteStudent } from '../../store/actions/actionCreators';
 
 const useStyles = makeStyles({
   table: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CampusView = ({ campus, deleteCampus }) => {
+const CampusView = ({ campus, deleteCampus, deleteStudent }) => {
   const classes = useStyles();
 
   return (
@@ -81,6 +81,11 @@ const CampusView = ({ campus, deleteCampus }) => {
           </tbody>
         </table>
       )}
+      <Link to={`/newstudent`}>
+      <Button variant="outlined" style={{ backgroundColor: '#f0f0f5', marginTop: '10px' }}>
+        Enroll New Student
+      </Button>
+      </Link>
       </Paper>
       </Box>
       </Grid>

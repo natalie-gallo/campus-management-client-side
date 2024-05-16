@@ -101,7 +101,7 @@ const EditCampusView = (props) => {
               rows="4"
               cols="50"
               onChange={(e) => handleChange(e)}
-              defaultValue={campus.name}
+              defaultValue={campus.description}
               autoComplete="off"
               required
             />
