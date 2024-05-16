@@ -22,7 +22,7 @@ class NewStudentContainer extends Component {
       lastname: "", 
       email: "",
       imageurl: "",
-      gpa: "",
+      gpa: null,
       campusId: null, 
       redirect: false, 
       redirectId: null
@@ -51,14 +51,14 @@ class NewStudentContainer extends Component {
     
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
-
+    
     // Update state, and trigger redirect to show the new student
     this.setState({
       firstname: "", 
       lastname: "", 
       email: "",
       imageurl: "",
-      gpa: "",
+      gpa: null,
       campusId: null, 
       redirect: true, 
       redirectId: newStudent.id
