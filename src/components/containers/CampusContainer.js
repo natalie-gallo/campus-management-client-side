@@ -8,7 +8,10 @@ If needed, it also defines the component's "connect" function.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampusThunk } from "../../store/thunks";
+import { fetchCampusThunk,
+  fetchAllStudentsThunk,
+  deleteStudentThunk
+ } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -17,14 +20,28 @@ class CampusContainer extends Component {
   componentDidMount() {
     // Get campus ID from URL (API link)
     this.props.fetchCampus(this.props.match.params.id);
+    this.props.fetchAllStudents(this.props.match.params.id);
   }
 
+   // Function to handle student deletion
+   handleDeleteStudent = (studentId) => {
+    // Dispatch deleteStudentThunk action
+    this.props.deleteStudent(studentId);
+    // Refetch campus and all students data after deletion
+    this.props.fetchCampus(this.props.match.params.id);
+    this.props.fetchAllStudents(this.props.match.params.id);
+  };
+  
   // Render a Campus view by passing campus data as props to the corresponding View component
   render() {
     return (
       <div>
         <Header />
-        <CampusView campus={this.props.campus} />
+        <CampusView
+          campus={this.props.campus}
+          deleteStudent={this.handleDeleteStudent} // Pass the handler function as prop
+          students={this.props.allStudents}
+        />
       </div>
     );
   }
@@ -36,6 +53,7 @@ class CampusContainer extends Component {
 const mapState = (state) => {
   return {
     campus: state.campus,  // Get the State object from Reducer "campus"
+    allStudents: state.allStudents,
   };
 };
 // 2. The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
@@ -43,6 +61,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
+    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
+    fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
   };
 };
 
