@@ -65,8 +65,10 @@ export const editCampusThunk = (campus) => async (dispatch) => {
   try {
     // API "put" call to update campus (based on "id" and "campus" object's data) from database
     let updatedCampus = await axios.put(`/api/campuses/${campus.id}`, campus)
+    console.log(updatedCampus.data);
     // Update successful so change state with dispatch
-    dispatch(ac.editCampus(updatedCampus))
+    dispatch(ac.editCampus(updatedCampus));
+    return updatedCampus.data;
   } catch (err) {
     console.error(err)
   }

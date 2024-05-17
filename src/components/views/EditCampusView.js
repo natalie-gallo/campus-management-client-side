@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
 const EditCampusView = (props) => {
   const { handleChange, handleSubmit, campusInfo } = props //functions that handles the change sumbission and the stored data
   const campus = campusInfo.campus
-
+  console.log('view result:', campus);
   const classes = useStyles()
 
   return (
@@ -113,8 +113,8 @@ const EditCampusView = (props) => {
             <input
               type="text"
               required
-              name="imageURL"
-              defaultValue={campus.imageURL}
+              name="imageUrl"
+              defaultValue={campus.imageUrl}
               onChange={(e) => handleChange(e)}
             />
             <br />

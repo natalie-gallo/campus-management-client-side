@@ -44,19 +44,21 @@ class EditCampusContainer extends Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
-      imageURL: this.state.imageURL,
+      imageUrl: this.state.imageUrl,
       id: this.state.campusId,
     }
+    console.log(campus);
 
     let newCampus = await this.props.editCampus(campus)
-    console.log(newCampus)
+    //console.log(newCampus)
+    console.log(newCampus.imageUrl)
     this.setState({
       name: '',
-      imageURL: '',
+      imageUrl: '',
       address: '',
       description: '',
       redirect: true,
-      redirectId: this.state.campusId,
+      redirectId: newCampus.id,
     })
   }
 
