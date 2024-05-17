@@ -55,6 +55,7 @@ class NewCampusContainer extends Component {
         address: "",
         description: "",
         imageURL: "", 
+        campusId: null, 
         redirect: true, 
         redirectId: newCampus.id,
     });
@@ -78,7 +79,7 @@ class NewCampusContainer extends Component {
         <Header />
         <NewCampusView 
           handleChange = {this.handleChange} 
-          handleSubmit= {this.handleSubmit}      
+          handleSubmit={this.handleSubmit}      
         />
       </div>          
     );
