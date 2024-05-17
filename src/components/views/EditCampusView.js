@@ -112,7 +112,6 @@ const EditCampusView = (props) => {
             </label>
             <input
               type="text"
-              required
               name="imageUrl"
               defaultValue={campus.imageUrl}
               onChange={(e) => handleChange(e)}
