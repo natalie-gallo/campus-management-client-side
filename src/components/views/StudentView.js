@@ -8,7 +8,6 @@ It constructs a React component to display the single student view page.
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Box, Paper, Typography, Button } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 
 const StudentView = (props) => {
   const { student, deleteStudent } = props;
@@ -27,7 +26,7 @@ const StudentView = (props) => {
           }}
         >
       <Paper elevation={3} sx={{ p: 2, mb: 2, mt: 2, width: 550, background: '#fcb6bb' }}>
-        <img src={student.imageurl} alt="Student Image"/> {/* need to fix later, display img if url is not null*/}
+        <img src={student.imageUrl} alt="Student Profile"/> {/* need to fix later, display img if url is not null*/}
         <h4>First Name: {student.firstname}</h4>
         <h4>Last Name: {student.lastname}</h4>
         <h4>Email: {student.email}</h4>
