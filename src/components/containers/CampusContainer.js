@@ -8,9 +8,11 @@ If needed, it also defines the component's "connect" function.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { fetchCampusThunk,
   fetchAllStudentsThunk,
-  deleteStudentThunk
+  deleteStudentThunk,
+  deleteCampusThunk
  } from "../../store/thunks";
 
 import { CampusView } from "../views";
@@ -31,6 +33,13 @@ class CampusContainer extends Component {
     this.props.fetchCampus(this.props.match.params.id);
     this.props.fetchAllStudents(this.props.match.params.id);
   };
+
+  handleDeleteCampus = async (campusId) => {
+    console.log(this.props.history);
+    await this.props.deleteCampus(campusId);
+    // Redirect to all campuses view after successful deletion
+    this.props.history.push("/campuses");
+  };
   
   // Render a Campus view by passing campus data as props to the corresponding View component
   render() {
@@ -40,6 +49,7 @@ class CampusContainer extends Component {
         <CampusView
           campus={this.props.campus}
           deleteStudent={this.handleDeleteStudent} // Pass the handler function as prop
+          deleteCampus={this.handleDeleteCampus} // Pass the handler function as prop
           students={this.props.allStudents}
         />
       </div>
@@ -63,10 +73,11 @@ const mapDispatch = (dispatch) => {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
     deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+    deleteCampus: (campusId) => dispatch(deleteCampusThunk(campusId)),
   };
 };
 
 // Export store-connected container by default
 // CampusContainer uses "connect" function to connect to Redux Store and to read values from the Store 
 // (and re-read the values when the Store State updates).
-export default connect(mapState, mapDispatch)(CampusContainer);
+export default connect(mapState, mapDispatch)(withRouter(CampusContainer));
