@@ -41,19 +41,19 @@ const CampusView = ({ campus, deleteCampus, deleteStudent }) => {
         >
       <Paper elevation={3} sx={{ p: 2, mb: 2, mt: 2, width: 550, background: '#fcb6bb' }}>
         <h2>{campus.name}</h2>
-        <h4>campus id: {campus.id}</h4>
-        <p>{campus.address}</p>
-        <p>{campus.description}</p>
+        <h4>Campus ID: {campus.id}</h4>
+        <p>Address: {campus.address}</p>
+        <p>Description: {campus.description}</p>
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
         <Button
           variant="outlined"
           style={{ backgroundColor: '#f0f0f5' }}
           onClick={() => deleteCampus(campus.id)}
         >
-        Remove
+        Delete Campus
         </Button>
         <Link to={`/campus/${campus.id}/edit`}>
-        <Button variant="outlined" style={{ backgroundColor: '#f0f0f5' }}>Edit</Button>
+        <Button variant="outlined" style={{ backgroundColor: '#f0f0f5' }}>Edit Campus</Button>
         </Link>
         </div>
         {campus.students.length === 0 ? (<h3>No students</h3>
