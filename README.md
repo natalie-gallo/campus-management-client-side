@@ -1,6 +1,6 @@
-# client-starter-code
+# Campus Management System (Client)
 
-This repository is the client (front-end) starter code for Final Project - Full-Stack CRUD Application.
+This website uses the PERN stack of web technologies to create a Campus Management System where users can view and edit both campus and student information. Full Stack CRUD Final Project (Client).
 
 ## Team Members
 
