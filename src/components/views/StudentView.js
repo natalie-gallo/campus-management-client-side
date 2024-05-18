@@ -26,7 +26,7 @@ const StudentView = (props) => {
           }}
         >
       <Paper elevation={3} sx={{ p: 2, mb: 2, mt: 2, width: 550, background: '#fcb6bb' }}>
-        <img src={student.imageUrl} alt="Student Profile" style={{ maxWidth: '25%', height: 'auto', borderRadius: '50%', objectFit: 'cover' }}/>
+        {student.imageUrl == '' ? (<img src='/default_student_image_url.jpg' alt="Student Profile" style={{ maxWidth: '25%', height: 'auto', borderRadius: '50%', objectFit: 'cover' }}/>) : (<img src={student.imageUrl} alt="Student Profile" style={{ maxWidth: '25%', height: 'auto', borderRadius: '50%', objectFit: 'cover' }}/>)}
         <h4>First Name: {student.firstname}</h4>
         <h4>Last Name: {student.lastname}</h4>
         <h4>Email: {student.email}</h4>
