@@ -40,7 +40,7 @@ export const deleteCampus = (id) => {
 // EDIT CAMPUS
 export const editCampus = (campus) => {
   return {
-    type: at.DELETE_CAMPUS,
+    type: at.EDIT_CAMPUS,
     payload: campus,
   };
 };
