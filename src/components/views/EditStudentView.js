@@ -107,7 +107,7 @@ const EditStudentView = (props) => {
             </label>
             <input
               type="url"
-              name="Url"
+              name="imageUrl"
               defaultValue={student.imageUrl}
               onChange={(e) => handleChange(e)}
             />
