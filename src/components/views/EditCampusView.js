@@ -111,7 +111,7 @@ const EditCampusView = (props) => {
               Image URL:{' '}
             </label>
             <input
-              type="text"
+              type="url"
               name="imageUrl"
               defaultValue={campus.imageUrl}
               onChange={(e) => handleChange(e)}
