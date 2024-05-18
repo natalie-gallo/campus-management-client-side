@@ -46,7 +46,8 @@ const CampusView = ({ campus, deleteCampus, deleteStudent }) => {
         <h4>Campus ID: {campus.id}</h4>
         <p>Address: {campus.address}</p>
         <p>Description: {campus.description}</p>
-        <img src={campus.imageUrl} alt={campus.name} style={{ maxWidth: '100%', height: 'auto' }} />
+        
+        {campus.imageUrl == "" ? (<img src='/default_campus_image_url.jpg' alt="Campus Profile" style={{ maxWidth: '25%', height: 'auto', borderRadius: '50%', objectFit: 'cover' }}/>) : (<img src={campus.imageUrl} alt="Campus Profile" style={{ maxWidth: '25%', height: 'auto', borderRadius: '50%', objectFit: 'cover' }}/>)}
 
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
         <Button
