@@ -27,6 +27,8 @@ const useStyles = makeStyles({
 const CampusView = ({ campus, deleteCampus, deleteStudent }) => {
   const classes = useStyles();
 
+  console.log('Campus Image URL:', campus.imageUrl);
+
   return (
     <div>
       <Typography variant="h3">Campus Details</Typography>

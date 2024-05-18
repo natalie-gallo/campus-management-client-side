@@ -54,7 +54,7 @@ class NewCampusContainer extends Component {
         name: "", 
         address: "",
         description: "",
-        imageUrl: "", 
+        imageURL: "", 
         campusId: null, 
         redirect: true, 
         redirectId: newCampus.id,
